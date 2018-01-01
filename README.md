@@ -1,7 +1,4 @@
-# FREWORK - The PHP micro framework built with Symfony.
+# Crypto Market Cap - An open source Cryptocurrency Market website.
 <p>by Webberdoo.co.uk</p>
 
-To add a fresh copy of the framework, run:
-<p><b>composer create-project webberdoo/frework YOUR-FOLDER dev-master</b></p>
-
-<p>More docs to come!</p>
+<p>Made with the Symfony 3 framework.</p>
