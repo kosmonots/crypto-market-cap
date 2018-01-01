@@ -1,7 +1,7 @@
 # Crypto Market Cap - An open source Cryptocurrency Market website.
 <p>by Webberdoo.co.uk</p>
 
-<p>Made with the Symfony 3 framework. And imports crypto currency data from the Coin Market Cap api</p>
+<p>Made with the Symfony 3 framework. And imports crypto currency data from the Coin Market Cap api.</p>
 
 <img src ="http://webberdoo.co.uk/wp/wp-content/uploads/2018/01/crypto-market.png"/>
 
