@@ -3,6 +3,8 @@
 
 <p>Made with the Symfony 3 framework. And imports crypto currency data from the Coin Market Cap api</p>
 
+<img src ="http://webberdoo.co.uk/wp/wp-content/uploads/2018/01/crypto-market.png"/>
+
 <p>View <a href="http://webberdoo.co.uk/demo/cm/" target="_blank">Demo</a></p>
 
 ## Getting Started
