@@ -73,7 +73,7 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
      */
     protected function getDefaultSuccessRedirectUrl()
     {
-        $this->container->get('session')->getFlashBag()->add('success_login', 'You have logged in.');
+        //$this->container->get('session')->getFlashBag()->add('success_login', 'You have logged in.');
         return $this->router->generate('homepage');
     }
 
