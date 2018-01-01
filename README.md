@@ -3,6 +3,8 @@
 
 <p>Made with the Symfony 3 framework. And imports crypto currency data from the Coin Market Cap api</p>
 
+<p>View <a href="http://webberdoo.co.uk/demo/cm/" target="_blank">Demo</a></p>
+
 ## Getting Started
 1. clone or download and then cd into main folder 'crypto-market-cap-master'.
 2. then install dependencies by entering 'composer install'.
