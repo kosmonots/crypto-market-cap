@@ -1,0 +1,10 @@
+<style>
+	.num{
+		font-size: 14px;
+	}
+</style>
+{% if value %}
+	{{  value|number_format(2, '.', ',') }} <span class="num-symbol">{{ currency }}</span>
+{% else %}
+	?
+{% endif %}

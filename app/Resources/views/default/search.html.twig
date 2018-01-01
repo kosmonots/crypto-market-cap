@@ -1,0 +1,111 @@
+{% extends 'default/layout/base.html.twig' %}
+
+{% block title %}Welcome To TITLE{% endblock %}
+
+{% block body %}
+
+    <style>
+        thead a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        thead a:hover {
+            color: #fff;
+            text-decoration: none;
+        }
+        thead a:active {
+            color: #fff;
+            text-decoration: none;
+        }
+    </style>
+
+    <div class="container">
+    <div class="main-container">
+    <div class="row">
+
+        <div class="row">
+
+            <div class="col-md-9">
+            </div>
+
+            <div class="col-md-3">
+				{% include 'default/layout/inc/search_form.html.twig' %}
+            </div>
+
+        </div>
+
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>Rank</th>
+                <th width="150">Name</th>
+                <th>Market Cap</th>
+                <th>Price</th>
+                <th>24h Volume</th>
+                <th>Circulating Supply</th>
+                <th width="80">24h</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% if search %}
+                {% for result in items %}
+                <tr>
+                    <td>{{ result.rank }}</td>
+                    <td>
+                       <img src="{{ asset('public/assets/img/default.png') }}" alt="" width="20" height="20"><a href="{{ path('single_currency', {'id': result.id, 'slug': result.slug } ) }}"> {{ result.name }}</a>
+                    </td>
+                    <td>
+                        {% include 'default/layout/inc/marketcapvol.html.twig' with {'value':  result.marketCap, 'currency': currency|lower } %}
+                    </td>
+                    <td>
+                        {% include 'default/layout/inc/price.html.twig' with {'value': result.price } %}{{ currency|lower }}
+                    </td>
+                    <td>
+                        {% include 'default/layout/inc/marketcapvol.html.twig' with {'value': result.volume24h, 'currency': currency|lower } %}
+                    </td>
+                    <td>
+                        {% include 'default/layout/inc/supply.html.twig' with {'supply':  result.totalSupply, 'symbol': '' } %}{{ result.symbol }}
+                    </td>
+                    <td>
+                        {% include 'default/layout/inc/change.twig' with {'percentChange': result.percentChange24h } %}
+                    </td>
+                </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td><strong>No search results</strong></td>
+                </tr>
+
+            {% endif %}
+
+            </tbody>
+        </table>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="modal modal-danger fade" id="danger-modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><i class="fa fa-times"></i></span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Oh No!</h4>
+                </div>
+                <div class="modal-body">
+                    <p>You need to login or register free, to add to watch list.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-modal" data-dismiss="modal">Ok</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

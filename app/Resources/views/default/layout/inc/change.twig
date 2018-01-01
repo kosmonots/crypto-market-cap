@@ -1,0 +1,10 @@
+{% if  percentChange %}
+	{% set percentChangeh = percentChange|split('') %}
+	{% if percentChangeh[0] == '-'%}
+		<span class="minus">{{ percentChange }}%</span>
+	{% else %}
+		<span class="plus">{{ percentChange }}%</span>
+	{% endif %}
+{% else %}
+	?
+{% endif %}

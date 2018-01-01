@@ -1,0 +1,5 @@
+{% if supply %}
+	{{  supply|number_format }} {% if symbol %}<span class="num-symbol">{{ symbol }}</span>{% endif %}
+{% else %}
+	?
+{% endif %}

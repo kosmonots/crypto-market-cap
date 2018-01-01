@@ -1,0 +1,7 @@
+{% set price = value|split('') %}
+
+{%if price[0] == 0 %}
+	{{ value|number_format(6, '.', ',') }}
+{% else %}
+	{{ value|number_format(2, '.', ',') }}
+{% endif %}

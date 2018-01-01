@@ -1,0 +1,145 @@
+{% extends 'default/layout/base.html.twig' %}
+
+{% block title %}Welcome To TITLE{% endblock %}
+
+{% block body %}
+
+    <div>
+
+        <div class="container-fluid">
+            <div class="main-container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h2>
+							{% if  getimagesize(crypto.image) %}
+                                <img src="{{ asset(crypto.image) }}" alt="" width="50" height="50">  {{ crypto.name }} <small>{{ crypto.symbol|upper }}</small>
+							{% else %}
+                                <img src="{{ asset('public/assets/img/default.png') }}" alt="" width="50" height="50"> {{ crypto.name }} <small>{{ crypto.symbol|upper }}</small>
+							{% endif %}
+                        </h2>
+                    </div>
+
+					{% set price = crypto.price|split('') %}
+
+                    <div class="col-md-8">
+                        <h2><small>1 <strong>{{ crypto.symbol }}</strong> is worth: </small> {% include 'default/layout/inc/price.html.twig' with {'value': crypto.price } %}<small><strong>{{ currency|upper }}</strong>
+                                (<strong>
+									{% include 'default/layout/inc/change.twig' with {'percentChange': crypto.percentChange24h } %}
+                                </strong>)
+                            </small>
+                        </h2>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="panel panel-success panel-filled">
+                            <div class="panel-heading">
+                                <div class="panel-title">Rank
+                                </div>
+                            </div>
+                            <div class="panel-body-left">
+                                {{  crypto.rank }}
+                            </div>
+                        </div>
+                        <div class="panel panel-success panel-filled">
+                            <div class="panel-heading">
+                                <div class="panel-title">Bitcoin Price
+                                </div>
+                            </div>
+                            <div class="panel-body-left">
+                                {% if crypto.priceBtc %}
+                                    {{  crypto.priceBtc }}
+                                {% else %}
+                                    ?
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="panel panel-success panel-filled">
+                            <div class="panel-heading">
+                                <div class="panel-title">1h change
+                                </div>
+                            </div>
+                            <div class="panel-body-left">
+								{% include 'default/layout/inc/change.twig' with {'percentChange': crypto.percentChange1h } %}
+                            </div>
+                        </div>
+                        <div class="panel panel-success panel-filled">
+                            <div class="panel-heading">
+                                <div class="panel-title">24h change
+                                </div>
+                            </div>
+                            <div class="panel-body-left">
+								{% include 'default/layout/inc/change.twig' with {'percentChange': crypto.percentChange24h } %}
+                            </div>
+                        </div>
+                        <div class="panel panel-success panel-filled">
+                            <div class="panel-heading">
+                                <div class="panel-title">7d change
+                                </div>
+                            </div>
+                            <div class="panel-body-left">
+								{% include 'default/layout/inc/change.twig' with {'percentChange': crypto.percentChange7d } %}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-8">
+                        <!---->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="panel-title">Market Cap
+                                </div>
+                            </div>
+                            <div class="panel-body-right">
+								{% include 'default/layout/inc/marketcapvol.html.twig' with {'value': crypto.marketCap, 'currency': currency|upper } %}
+                            </div>
+                        </div>
+                        <!---->
+
+                        <!---->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="panel-title">Volume (24h)
+                                </div>
+                            </div>
+                            <div class="panel-body-right">
+								{% include 'default/layout/inc/marketcapvol.html.twig' with {'value': crypto.volume24h, 'currency': currency|upper } %}
+                            </div>
+                        </div>
+                        <!---->
+
+                        <!---->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="panel-title">Circulating Supply
+                                </div>
+                            </div>
+                            <div class="panel-body-right">
+								{% include 'default/layout/inc/supply.html.twig' with {'supply': crypto.availableSupply, 'symbol': crypto.symbol|upper } %}
+                            </div>
+                        </div>
+                        <!---->
+
+                        <!---->
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <div class="panel-title">Max Supply
+                                </div>
+                            </div>
+                            <div class="panel-body-right">
+								{% include 'default/layout/inc/supply.html.twig' with {'supply': crypto.totalSupply, 'symbol': crypto.symbol|upper } %}
+                            </div>
+                        </div>
+                        <!---->
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
