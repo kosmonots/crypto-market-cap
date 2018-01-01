@@ -72,20 +72,11 @@
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-			{% if is_granted('ROLE_USER') %}
-                <li><a href="{{ path('security_logout') }}">Login</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">My Account <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="{{ path('user_account') }}">My Profile</a>
-                        </li>
-                        <li><a href="{{ path('user_watch_list') }}">My Watch List</a>
-                        </li>
-                    </ul>
-                </li>
-            {% else %}
-            <li><a href="{{ path('security_login') }}">Login</a></li>
-            {% endif %}
+			{% if is_granted('ROLE_ADMIN') %}
+                <li><a class="" href="{{ path('admin') }}"> Admin Area</a></li>
+			{% else %}
+                <li><a href="{{ path('security_login') }}">Login</a></li>
+			{% endif %}
         </ul>
     </div>
     <!-- /.navbar-collapse -->
