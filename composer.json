@@ -18,7 +18,7 @@
         "doctrine/doctrine-bundle": "^1.7",
         "twig/twig": "^2.4",
         "stof/doctrine-extensions-bundle": "^1.2",
-        "sensio/framework-extra-bundle": "^3.0",
+        "sensio/framework-extra-bundle": "^5.2",
         "symfony/swiftmailer-bundle": "^2.3.10",
         "sensio/distribution-bundle": "^5.0",
         "vlucas/phpdotenv": "^2.4",
